@@ -19,20 +19,21 @@ MAIN PROC FAR
        JE TERMINATE
        
        SUB AL,48
-       MOV BH,0
+       MOV BX,0
        MOV BL,AL
-       MOV AX,10
+       MOV AL,10
        
-       IMUL NUM
+       MUL NUM
         
-       ADD DX,BX
-       MOV NUM,DX
+       ADD AX,BX
+       MOV NUM,AX
        JMP NUMENTER 
     
    
    PROG:
-   ; MOV BX,NUM
-   ; CALL PRINTNUM
+    CALL NEWLINE
+    MOV AX,NUM
+    CALL PRINTNUM
     MOV DX,0
     MOV AX,NUM
     MOV BX,2
